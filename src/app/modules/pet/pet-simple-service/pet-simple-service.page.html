@@ -1,0 +1,62 @@
+<ion-header mode="ios" class="ion-no-border" colapse="condense">
+  <ion-toolbar>
+    <ion-title *ngIf="pet" size="large">
+      <ion-item>
+        <ion-avatar slot="start">
+          <img src="../../../../assets/svg/diagnostic.svg">
+        </ion-avatar>
+        <ion-label>
+          <h3>Servicios Simples de {{ pet.name }}</h3>
+        </ion-label>
+      </ion-item>
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content mode="ios">
+
+  <ion-list *ngFor="let pss of simpleServices">
+    <ion-card>
+      <ion-card-header>
+        <ion-card-subtitle>{{ pss.simpleService.date }}</ion-card-subtitle>
+        <ion-card-title><b>Servicio:</b> {{ pss.simpleService.name }}</ion-card-title>
+      </ion-card-header>
+
+      <ion-card-content>
+        <ion-chip>
+          <ion-avatar>
+            <img src="../../../../assets/svg/diagnostic.svg">
+          </ion-avatar>
+          <ion-label>Detalles del servicio</ion-label>
+        </ion-chip>
+        <ion-row>
+          <p><b>Costo:</b> S/. {{ pss.simpleService.cost }}</p>
+          <p><b>Descripción:</b> {{ pss.simpleService.description }}</p>
+          <p><b>Tratamiento:</b> {{ pss.simpleService.treatment }}</p>
+        </ion-row>
+        <ion-chip>
+          <ion-avatar>
+            <img src="../../../../assets/svg/pets.svg">
+          </ion-avatar>
+          <ion-label>Detalles de la mascota</ion-label>
+        </ion-chip>
+        <ion-row>
+          <p><b>Peso:</b> {{ pss.simpleService.weight }} Kg.</p>
+          <p><b>Temperatura:</b> {{ pss.simpleService.temperature }} °C</p>
+          <p><b>Síntomas:</b> {{ pss.simpleService.symptoms }}</p>
+        </ion-row>
+        <ion-chip>
+          <ion-avatar>
+            <img src="../../../../assets/svg/roundedDoctor.svg">
+          </ion-avatar>
+          <ion-label>Veterinario encargado</ion-label>
+        </ion-chip>
+        <ion-row>
+          <p><b>Nombre completo:</b> {{ pss.vet.firstname }} {{ pss.vet.lastname }}</p>
+          <p><b>Codigo de veterinario:</b> {{ pss.vet.cmvp }}</p>
+        </ion-row>
+      </ion-card-content>
+    </ion-card>
+  </ion-list>
+
+</ion-content>

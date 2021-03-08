@@ -1,0 +1,62 @@
+<ion-header mode="ios" class="ion-no-border" colapse="condense">
+  <ion-toolbar>
+    <ion-title *ngIf="pet" size="large">
+      <ion-item>
+        <ion-avatar slot="start">
+          <img src="../../../../assets/svg/diagnostic.svg">
+        </ion-avatar>
+        <ion-label>
+          <h3>Servicios de Internado de {{ pet.name }}</h3>
+        </ion-label>
+      </ion-item>
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content mode="ios">
+
+  <ion-list *ngFor="let phs of hospitalizedServices">
+    <ion-card>
+      <ion-card-header>
+        <ion-card-subtitle>{{ phs.hospitalizedService.date }}</ion-card-subtitle>
+        <ion-card-title><b>Diagnóstico:</b> {{ phs.hospitalizedService.diagnosis }}</ion-card-title>
+      </ion-card-header>
+
+      <ion-card-content>
+        <ion-chip>
+          <ion-avatar>
+            <img src="../../../../assets/svg/diagnostic.svg">
+          </ion-avatar>
+          <ion-label>Detalles del servicio</ion-label>
+        </ion-chip>
+        <ion-row>
+          <p><b>Costo:</b> S/. {{ phs.hospitalizedService.cost }}</p>
+          <p><b>Descripción:</b> {{ phs.hospitalizedService.description }}</p>
+          <p><b>Tratamiento:</b> {{ phs.hospitalizedService.treatment }}</p>
+        </ion-row>
+        <ion-chip>
+          <ion-avatar>
+            <img src="../../../../assets/svg/pets.svg">
+          </ion-avatar>
+          <ion-label>Detalles de la mascota</ion-label>
+        </ion-chip>
+        <ion-row>
+          <p><b>Peso:</b> {{ phs.hospitalizedService.weight }} Kg.</p>
+          <p><b>Temperatura:</b> {{ phs.hospitalizedService.temperature }} °C</p>
+          <p><b>Síntomas:</b> {{ phs.hospitalizedService.symptoms }}</p>
+        </ion-row>
+        <ion-chip>
+          <ion-avatar>
+            <img src="../../../../assets/svg/roundedDoctor.svg">
+          </ion-avatar>
+          <ion-label>Veterinario encargado</ion-label>
+        </ion-chip>
+        <ion-row>
+          <p><b>Nombre completo:</b> S/. {{ phs.vet.firstname }} {{ phs.vet.lastname }}</p>
+          <p><b>Codigo de veterinario:</b> {{ phs.vet.cmvp }}</p>
+        </ion-row>
+      </ion-card-content>
+    </ion-card>
+  </ion-list>
+
+</ion-content>

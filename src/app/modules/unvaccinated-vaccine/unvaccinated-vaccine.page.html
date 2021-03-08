@@ -1,0 +1,42 @@
+<ion-header mode="ios" class="ion-no-border" colapse="condense">
+  <ion-toolbar>
+    <ion-title size="large">
+      <ion-item>
+        <ion-avatar slot="start">
+          <img src="../../../../assets/svg/roundedVaccine.svg">
+        </ion-avatar>
+        <ion-label>
+          <h3>Próximas Vacunas</h3>
+        </ion-label>
+      </ion-item>
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content mode="ios">
+
+  <ion-list *ngFor="let vaccine of unvaccinatedVaccines">
+    <ion-card>
+      <ion-card-header>
+        <ion-card-subtitle>Vacuna de Mascota: {{ vaccine.pet_name }}</ion-card-subtitle>
+        <ion-card-title> {{ vaccine.pet_vaccination_card_vaccine_date }}</ion-card-title>
+      </ion-card-header>
+      
+      <ion-card-content>
+        <ion-row>
+          <ion-chip>
+            <ion-avatar>
+              <img src="../../../../assets/svg/roundedVaccine.svg">
+            </ion-avatar>
+            <ion-label>Vacuna: {{ vaccine.vaccine_name }}</ion-label>
+          </ion-chip>
+        </ion-row>
+        <ion-row >
+          <p><b>Estado:</b> <ion-text color="danger"> {{ vaccine.pet_vaccination_card_vaccine_state }} </ion-text></p>
+          <!-- <p><b>Estado:</b> {{ vaccine.pivot.state }}</p> -->
+        </ion-row>
+      </ion-card-content>
+    </ion-card>
+  </ion-list>
+
+</ion-content>
